@@ -1,0 +1,46 @@
+variable,dataset,entity_id,sensor_name,sensor_lat,sensor_lon,dominant_pattern,significant_moments_pct,significant_moments,HH_moments,LL_moments,HL_moments,LH_moments,observed_moments_pct,insufficient_moments_pct,missing_moments,mean_local_moran_i,mean_p_value,variable_signal_pct,map_color
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c01f2,Aquatec - C/ San Juan,37.605112,-0.985913,LH,50.0,12,0,0,0,12,100.0,0.0,0,-1.0333,0.1854,4.55,#7c3aed
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e68679c5b2,Aquatec - C/ Juan de la Cosa,37.6077778,-0.981388889,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.1056,0.7188,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867aa682,Aquatec - C/ Pintor Balaca,37.609571,-0.987615,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,0.0175,0.8559,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867bf326,Aquatec - C/ Ramón y Cajal,37.608898092,-0.990987387,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.4728,0.5375,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0966,Aquatec - C/ Juan Fernández,37.608095402,-0.987760799,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,0.0352,0.8471,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0a5a,Aquatec - Calle Real,37.60372,-0.990846,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,-0.5456,0.2324,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0df2,Aquatec - Plaza de España,37.605122,-0.991117,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.0572,0.6708,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1532,Aquatec - C/Angel Bruna,37.608654022,-0.985216022,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,0.4536,0.2735,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1842,Aquatec - Plaza del Rey,37.6,-0.988055556,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,-0.0402,0.8029,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c2186,Aquatec - C/ Carlos III,37.60592,-0.98264,no_signal,0.0,0,0,0,0,0,70.83,0.0,7,-0.4451,0.3059,4.55,#64748b
+NO2,air_quality,urn:ngsi:AirQualityObserved:HOPe0e2e632fa1e,Aquatec - C/ Serreta,37.60355,-0.98363,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.2055,0.7125,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c2186,Aquatec - C/ Carlos III,37.60592,-0.98264,LH,16.67,4,0,0,0,4,100.0,0.0,0,-0.3121,0.3333,4.55,#7c3aed
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0a5a,Aquatec - Calle Real,37.60372,-0.990846,HL,12.5,3,1,0,2,0,100.0,0.0,0,-0.2155,0.4354,4.55,#ea580c
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c01f2,Aquatec - C/ San Juan,37.605112,-0.985913,HL,8.33,2,0,0,2,0,100.0,0.0,0,-0.2277,0.5833,4.55,#ea580c
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0966,Aquatec - C/ Juan Fernández,37.608095402,-0.987760799,LH,8.33,2,0,0,0,2,100.0,0.0,0,-0.2634,0.4479,4.55,#7c3aed
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1842,Aquatec - Plaza del Rey,37.6,-0.988055556,HH,4.17,1,1,0,0,0,100.0,0.0,0,0.1914,0.4417,4.55,#b91c1c
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e68679c5b2,Aquatec - C/ Juan de la Cosa,37.6077778,-0.981388889,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.027,0.6,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867aa682,Aquatec - C/ Pintor Balaca,37.609571,-0.987615,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.0221,0.7583,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867bf326,Aquatec - C/ Ramón y Cajal,37.608898092,-0.990987387,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.1341,0.4708,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0df2,Aquatec - Plaza de España,37.605122,-0.991117,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.086,0.6146,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1532,Aquatec - C/Angel Bruna,37.608654022,-0.985216022,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.2385,0.5021,4.55,#64748b
+PM10,air_quality,urn:ngsi:AirQualityObserved:HOPe0e2e632fa1e,Aquatec - C/ Serreta,37.60355,-0.98363,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.0006,0.7792,4.55,#64748b
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0966,Aquatec - C/ Juan Fernández,37.608095402,-0.987760799,LH,16.67,4,0,0,0,4,100.0,0.0,0,-0.2641,0.3917,5.3,#7c3aed
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c01f2,Aquatec - C/ San Juan,37.605112,-0.985913,HL,12.5,3,0,0,3,0,100.0,0.0,0,-0.2918,0.5833,5.3,#ea580c
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0a5a,Aquatec - Calle Real,37.60372,-0.990846,HL,12.5,3,0,0,3,0,100.0,0.0,0,-0.3336,0.3083,5.3,#ea580c
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c2186,Aquatec - C/ Carlos III,37.60592,-0.98264,LH,8.33,2,0,0,0,2,100.0,0.0,0,-0.1878,0.4375,5.3,#7c3aed
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867bf326,Aquatec - C/ Ramón y Cajal,37.608898092,-0.990987387,LH,4.17,1,0,0,0,1,100.0,0.0,0,-0.1546,0.3646,5.3,#7c3aed
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1842,Aquatec - Plaza del Rey,37.6,-0.988055556,HH,4.17,1,1,0,0,0,100.0,0.0,0,0.0911,0.4458,5.3,#b91c1c
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e68679c5b2,Aquatec - C/ Juan de la Cosa,37.6077778,-0.981388889,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.0097,0.5542,5.3,#64748b
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867aa682,Aquatec - C/ Pintor Balaca,37.609571,-0.987615,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.0491,0.6854,5.3,#64748b
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c0df2,Aquatec - Plaza de España,37.605122,-0.991117,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.0746,0.6333,5.3,#64748b
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOP94e6867c1532,Aquatec - C/Angel Bruna,37.608654022,-0.985216022,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.0866,0.6354,5.3,#64748b
+PM25,air_quality,urn:ngsi:AirQualityObserved:HOPe0e2e632fa1e,Aquatec - C/ Serreta,37.60355,-0.98363,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.0441,0.7417,5.3,#64748b
+coches_total,traffic,anprFlowObserved:16,ENTRADA A C/ ANGEL BRUNA POR PASEO ALFONSO XIII – SENTIDO NORTE,37.6072838,-0.984782704,HH,8.33,2,2,0,0,0,100.0,0.0,0,0.3419,0.4104,1.74,#b91c1c
+coches_total,traffic,anprFlowObserved:9,ENTRADA A C/ CARLOS III POR PLAZA DE ESPAÑA,37.6058105,-0.990161204,HL,8.33,2,0,0,2,0,100.0,0.0,0,-0.2035,0.4688,1.74,#ea580c
+coches_total,traffic,anprFlowObserved:2,ENTRADA A C/ ANGEL BRUNA POR PASEO ALFONSO XIII – SENTIDO SUR,37.6070603,-0.9848048,HH,4.17,1,1,0,0,0,100.0,0.0,0,0.4414,0.3083,1.74,#b91c1c
+coches_total,traffic,anprFlowObserved:10,ENTRADA C/ JABONERÍAS POR C/ TOLOSA LATOUR,37.6046576,-0.9910883,no_signal,0.0,0,0,0,0,0,75.0,0.0,6,0.4616,0.3056,1.74,#64748b
+coches_total,traffic,anprFlowObserved:11,ENTRADA A C/ JIMENEZ DE LA ESPADA POR ALAMEDA SAN ANTÓN,37.607378128,-0.991600329,no_signal,0.0,0,0,0,0,0,66.67,0.0,8,-0.0099,0.5875,1.74,#64748b
+coches_total,traffic,anprFlowObserved:12,CRUCE AVDA. REINA VICTORIA CON C/ RAMÓN Y CAJAL,37.609596235,-0.991214162,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,-0.1938,0.5417,1.74,#64748b
+coches_total,traffic,anprFlowObserved:13,ENTRADA A WSSELL DE GUIMBARDA POR AVDA. REINA VICTORIA,37.6096898,-0.986318017,no_signal,0.0,0,0,0,0,0,4.17,0.0,23,-1.0678,0.1,1.74,#64748b
+coches_total,traffic,anprFlowObserved:14,ENTRADA A C/ ANGEL BRUNA POR AVDA. REINA VICTORIA,37.609773785,-0.985108985,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.5063,0.3604,1.74,#64748b
+coches_total,traffic,anprFlowObserved:17,ENTRADA A JUAN FERNÁNDEZ POR PASEO ALFONSO XIII,37.60696,-0.9876285,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.0467,0.6354,1.74,#64748b
+coches_total,traffic,anprFlowObserved:4,ENTRADA A C/ CARLOS III POR C/ JUAN DE LA COSA,37.6060743,-0.9823867,no_signal,0.0,0,0,0,0,0,100.0,0.0,0,0.2477,0.4812,1.74,#64748b
+coches_total,traffic,anprFlowObserved:7,ENTRADA A PLAZA SAN AGUSTÍN,37.5993387,-0.9878055,no_signal,0.0,0,0,0,0,0,95.83,0.0,1,0.4109,0.3217,1.74,#64748b
+coches_total,traffic,anprFlowObserved:8,ENTRADA A PLAZA CASTELLINI,37.6022898,-0.9884421,no_signal,0.0,0,0,0,0,0,58.33,0.0,10,0.5054,0.3107,1.74,#64748b
