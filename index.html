@@ -1,212 +1,606 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EYSA · Mapas</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resumen del estudio espacial</title>
   <style>
-    :root{
-      /* Colores EYSA (aprox.) */
-      --eysa-blue:    #3B6473;
-      --eysa-cyan:    #3090C0;
-      --eysa-green:   #80A020;
-      --eysa-magenta: #8F1B52;
-
-      --bg:#ffffff;
-      --ink:#0b1b22;
-      --muted:#5c6b73;
-      --border: rgba(11,27,34,.14);
-      --soft: rgba(59,100,115,.06);
-
-      --radius: 12px;
-      --max: 920px;
+    :root {
+      --bg: #efefef;
+      --panel: rgba(255, 255, 255, 0.96);
+      --ink: #474747;
+      --muted: #6c6c6c;
+      --line: #d8d8d8;
+      --accent: #00576f;
+      --accent-dark: #00485d;
+      --accent-blue: #3f73c8;
+      --accent-sky: #59bfe8;
+      --accent-lime: #afca2b;
+      --accent-magenta: #e5007e;
+      --accent-soft: #dff1f8;
+      --shadow: 0 24px 48px rgba(0, 87, 111, 0.12);
     }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: var(--bg);
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(89, 191, 232, 0.18), transparent 24%),
+        linear-gradient(180deg, #f3f3f1 0%, #efefef 100%);
       color: var(--ink);
+      font-family: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
     }
-
-    .bar{
-      height:4px;
-      background: linear-gradient(90deg,
-        var(--eysa-green),
-        var(--eysa-cyan),
-        var(--eysa-blue),
-        var(--eysa-magenta)
-      );
-    }
-
-    .wrap{
-      max-width: var(--max);
+    main {
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 22px 16px 44px;
+      padding: 24px 20px 36px;
     }
-
-    header{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(22, 34, 53, 0.08);
+      border-radius: 24px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
-
-    h1{
-      margin:0 0 6px;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      color: var(--eysa-blue);
+    .hero {
+      overflow: hidden;
+      position: relative;
     }
-
-    .meta{
-      margin:0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.45;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(89, 191, 232, 0.2) 0%, rgba(89, 191, 232, 0) 72%);
+      pointer-events: none;
     }
-
-    .section{
-      margin: 18px 0 10px;
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
+    .brand-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
     }
-
-    .section h2{
-      margin:0;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      color: var(--muted);
-      font-weight: 800;
-    }
-
-    .list{
-      display:grid;
-      grid-template-columns: 1fr;
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
+      padding: 6px 0;
     }
-
-    .item{
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #fff;
-      overflow:hidden;
+    .brand-dots {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex: 0 0 auto;
     }
-
-    .item a{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 14px 14px;
-      text-decoration:none;
-      color: inherit;
+    .brand-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 2px solid var(--accent-dark);
+      box-sizing: border-box;
     }
-
-    .left{
-      min-width:0;
-      display:flex;
-      flex-direction:column;
-      gap: 3px;
+    .brand-dot.dot-lime {
+      top: 5px;
+      left: 0;
+      background: var(--accent-lime);
     }
-
-    .title{
-      font-size: 14px;
-      font-weight: 750;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+    .brand-dot.dot-sky {
+      top: 0;
+      left: 17px;
+      background: var(--accent-sky);
     }
-
-    .desc{
-      font-size: 12px;
+    .brand-dot.dot-magenta {
+      top: 12px;
+      left: 17px;
+      background: var(--accent-magenta);
+    }
+    .brand-name {
+      color: var(--accent);
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .brand-group {
       color: var(--muted);
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+      font-size: 12px;
+      font-weight: 600;
+      align-self: flex-end;
+      padding-bottom: 6px;
     }
-
-    .arrow{
-      color: var(--eysa-blue);
-      font-weight: 900;
-      opacity: .9;
+    .period-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(63, 115, 200, 0.18);
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--accent-blue);
+      font-size: 12px;
+      font-weight: 700;
     }
-
-    .item:hover{
-      background: var(--soft);
-      border-color: rgba(59,100,115,.28);
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+      gap: 24px;
+      align-items: start;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 38px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+    }
+    h2 {
+      margin-bottom: 14px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      margin: 0 0 12px 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .view-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .view-card {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(22, 34, 53, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 247, 250, 1) 100%);
+      box-shadow: 0 14px 26px rgba(22, 34, 53, 0.08);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .view-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 36px rgba(22, 34, 53, 0.12);
+      border-color: rgba(89, 191, 232, 0.32);
+    }
+    .view-card span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+    .view-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .view-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .kpi-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(22, 34, 53, 0.08);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 24px rgba(22, 34, 53, 0.08);
+    }
+    .kpi-card span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .kpi-card strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .kpi-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .meta-block {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(22, 34, 53, 0.08);
+      background: rgba(247, 249, 251, 0.84);
+    }
+    .meta-block h3 {
+      margin-bottom: 8px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-blue);
+    }
+    .meta-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      overflow: hidden;
+    }
+    .stats-table th, .stats-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .stats-table th {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(247, 249, 251, 0.8);
+    }
+    .stats-table tr:hover td {
+      background: rgba(89, 191, 232, 0.08);
+    }
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 980px) {
+      .hero-grid,
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+      .view-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      main {
+        padding: 16px 12px 28px;
+      }
+      .panel {
+        padding: 18px 16px;
+        border-radius: 18px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-table {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="bar"></div>
-
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>EYSA · Mapas</h1>
-        <p class="meta">Rango LISA: <span>2024-05-01 00:00:00 → 2024-07-31 23:00:00</span></p>
+  <main>
+    <section class="panel hero">
+      <div class="brand-row">
+        <div class="brand-mark">
+          <span class="brand-dots">
+            <span class="brand-dot dot-lime"></span>
+            <span class="brand-dot dot-sky"></span>
+            <span class="brand-dot dot-magenta"></span>
+          </span>
+          <span class="brand-name">EYSA</span>
+          <span class="brand-group">Grupo</span>
+        </div>
+        <div class="period-chip">Periodo: 2025-10-01 a 2025-10-31</div>
       </div>
-    </header>
-
-    <div class="section">
-      <h2>Mapas</h2>
-      <span class="meta">HTML</span>
-    </div>
-
-    <div class="list">
-      <div class="item">
-        <a href="./spatial_lisa_by_variable_map.html">
-          <div class="left">
-            <div class="title">LISA (univariante)</div>
-            <div class="desc">HH/LL/HL/LH por variable</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Resumen del estudio espacial</h1>
+          <p class="lead">Panel de navegacion y lectura rapida del analisis LISA sectorial. La capa visual mantiene la misma logica del estudio y reorganiza la presentacion en una interfaz mas corporativa y legible.</p>
+          <div class="view-grid">
+            
+            <a class="view-card" href="01_valor_medio.html">
+              <span>Vista 01</span>
+              <strong>Valor medio</strong>
+              <p>Mapa coropletico del valor medio interpolado por sector para cada variable.</p>
+            </a>
+            <a class="view-card" href="02_resultado_univariante.html">
+              <span>Vista 02</span>
+              <strong>Resultado univariante</strong>
+              <p>Mapa LISA local con selector de variable y lectura de clusters espaciales.</p>
+            </a>
+            <a class="view-card" href="03_resultado_bivariante.html">
+              <span>Vista 03</span>
+              <strong>Resultado bivariante</strong>
+              <p>Mapa LISA bivariante para la variable base frente a cada contaminante.</p>
+            </a>
+            <a class="view-card" href="../../maps/pollutant_sector_traffic_timeline_map.html">
+              <span>Vista 04</span>
+              <strong>Timeline sectorial</strong>
+              <p>Mapa temporal por sectores con contaminantes y circulos de trafico del bloque QC.</p>
+            </a>
+            <a class="view-card" href="../../maps/qc_sensor_map.html">
+              <span>Vista 05</span>
+              <strong>Mapa QC sensores</strong>
+              <p>Vista interactiva de sensores y validacion espacial generada en el QC.</p>
+            </a>
           </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-
-      <div class="item">
-        <a href="./spatial_bivariate_lisa_by_variable_map.html">
-          <div class="left">
-            <div class="title">LISA bivariante</div>
-            <div class="desc">Relación espacial entre dos variables</div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span>Sectores en estudio</span>
+            <strong>106</strong>
+            <p>Sectores que entran al LISA tras aplicar el recorte espacial.</p>
           </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-
-      <div class="item">
-        <a href="./map_history_total.html">
-          <div class="left">
-            <div class="title">Histórico (map_history_total)</div>
-            <div class="desc">Mapa del histórico total</div>
+          <div class="kpi-card">
+            <span>Sectores candidatos</span>
+            <strong>135</strong>
+            <p>Sectores previos al filtro final de distancia al sensor mas cercano.</p>
           </div>
-          <span class="arrow">→</span>
-        </a>
+          <div class="kpi-card">
+            <span>Variables</span>
+            <strong>10</strong>
+            <p>Variables univariantes disponibles en las vistas y tablas.</p>
+          </div>
+          <div class="kpi-card">
+            <span>Pares bivariantes</span>
+            <strong>9</strong>
+            <p>Comparaciones activas entre la base bivariante y los contaminantes.</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="section">
-      <h2>Datasets</h2>
-      <span class="meta">CSV</span>
-    </div>
-
-    <div class="list">
-      <div class="item"><a href="./spatial_lisa_by_variable.csv"><div class="left"><div class="title">spatial_lisa_by_variable.csv</div></div><span class="arrow">→</span></a></div>
-      <div class="item"><a href="./spatial_lisa_detail_by_hour.csv"><div class="left"><div class="title">spatial_lisa_detail_by_hour.csv</div></div><span class="arrow">→</span></a></div>
-      <div class="item"><a href="./spatial_bivariate_lisa_by_variable.csv"><div class="left"><div class="title">spatial_bivariate_lisa_by_variable.csv</div></div><span class="arrow">→</span></a></div>
-      <div class="item"><a href="./spatial_bivariate_lisa_detail_by_hour.csv"><div class="left"><div class="title">spatial_bivariate_lisa_detail_by_hour.csv</div></div><span class="arrow">→</span></a></div>
-    </div>
-  </div>
+    </section>
+    <section class="panel">
+      <h2>Alcance y filtros del estudio</h2>
+      <div class="meta-grid">
+        <div class="meta-block">
+          <h3>Configuracion espacial</h3>
+          <p><strong>Radio local:</strong> 1 km</p>
+          <p><strong>Minimo local:</strong> 2 estaciones</p>
+          <p><strong>Sensores de trafico admitidos:</strong> 14</p>
+        </div>
+        <div class="meta-block">
+          <h3>Variables y pares</h3>
+          <p><strong>Variables univariantes:</strong> CO, NO2, O3, SO2, PM10, PM25, PM1, VOC, CO2, coches_total</p>
+          <p><strong>Pares bivariantes:</strong> coches_total vs CO, coches_total vs NO2, coches_total vs O3, coches_total vs SO2, coches_total vs PM10, coches_total vs PM25, coches_total vs PM1, coches_total vs VOC, coches_total vs CO2</p>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Resultados globales univariantes</h2>
+      <table class="dataframe stats-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable_x</th>
+      <th>n_sectors</th>
+      <th>statistic</th>
+      <th>expected</th>
+      <th>z_score</th>
+      <th>p_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CO</td>
+      <td>69</td>
+      <td>0.3767</td>
+      <td>-0.0147</td>
+      <td>5.5396</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>NO2</td>
+      <td>72</td>
+      <td>0.5655</td>
+      <td>-0.0141</td>
+      <td>7.6248</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>O3</td>
+      <td>72</td>
+      <td>0.5105</td>
+      <td>-0.0141</td>
+      <td>7.0789</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>SO2</td>
+      <td>69</td>
+      <td>0.1422</td>
+      <td>-0.0147</td>
+      <td>3.3983</td>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <td>PM10</td>
+      <td>72</td>
+      <td>0.43</td>
+      <td>-0.0141</td>
+      <td>6.1842</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>PM25</td>
+      <td>72</td>
+      <td>0.4971</td>
+      <td>-0.0141</td>
+      <td>7.2754</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>PM1</td>
+      <td>72</td>
+      <td>0.5029</td>
+      <td>-0.0141</td>
+      <td>7.7682</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>VOC</td>
+      <td>63</td>
+      <td>0.7456</td>
+      <td>-0.0161</td>
+      <td>10.8715</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>CO2</td>
+      <td>58</td>
+      <td>0.7701</td>
+      <td>-0.0175</td>
+      <td>10.5463</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>58</td>
+      <td>0.5879</td>
+      <td>-0.0175</td>
+      <td>7.7091</td>
+      <td>0.001</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+    <section class="panel">
+      <h2>Resultados globales bivariantes</h2>
+      <table class="dataframe stats-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable_x</th>
+      <th>variable_y</th>
+      <th>n_sectors</th>
+      <th>statistic</th>
+      <th>z_score</th>
+      <th>p_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>coches_total</td>
+      <td>CO</td>
+      <td>58</td>
+      <td>0.3605</td>
+      <td>3.257</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>NO2</td>
+      <td>58</td>
+      <td>-0.0207</td>
+      <td>-0.212</td>
+      <td>0.411</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>O3</td>
+      <td>58</td>
+      <td>0.0256</td>
+      <td>0.2469</td>
+      <td>0.393</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>SO2</td>
+      <td>58</td>
+      <td>-0.3484</td>
+      <td>-3.161</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>PM10</td>
+      <td>58</td>
+      <td>-0.334</td>
+      <td>-3.0173</td>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>PM25</td>
+      <td>58</td>
+      <td>-0.361</td>
+      <td>-3.3445</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>PM1</td>
+      <td>58</td>
+      <td>-0.3289</td>
+      <td>-3.0103</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>VOC</td>
+      <td>58</td>
+      <td>-0.0284</td>
+      <td>-0.26</td>
+      <td>0.374</td>
+    </tr>
+    <tr>
+      <td>coches_total</td>
+      <td>CO2</td>
+      <td>54</td>
+      <td>-0.3398</td>
+      <td>-3.0388</td>
+      <td>0.001</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+    <section class="panel">
+      <h2>Estructura de representacion</h2>
+      <div class="meta-grid">
+        <div class="meta-block">
+          <h3>Mapas</h3>
+          <p>La vista de valor medio usa un unico mapa con desplegable por variable.</p>
+          <p>La vista univariante muestra el cluster LISA local para cada variable seleccionada.</p>
+          <p>La vista bivariante cambia entre pares base versus contaminante en la misma pagina.</p>
+        </div>
+        <div class="meta-block">
+          <h3>Lectura</h3>
+          <p>Las tablas globales mantienen el numero real de sectores validos por variable o por par tras aplicar los filtros locales.</p>
+          <p>La interfaz usa la paleta corporativa de EYSA, pero los sectores se pintan con colores analiticos mas intuitivos para facilitar la lectura espacial.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
